@@ -74,10 +74,43 @@
     Start code
 
     ===================== */
+    var restaurantData = [
+          {
+            "lng":-75.202528,
+            "lat":39.955204,
+            "label":"U-Town"
+          },
+            {
+            "lng":-75.156606,
+            "lat":39.953870,
+            "label":"Bubble-Tea1"
+          },
+            {
+            "lng":-75.156217,
+            "lat":39.954694,
+            "label":"Bubble-Tea2"
+          }]
+          var addmarker = function(obj) {return L.marker([obj.lat,obj.lng])
+            .addTo(map).bindPopup(obj.label)}
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+          restaurantData.forEach (addmarker)
+
+          var restaurantData2 =[
+         {
+            "lng":-75.190556,
+            "lat":39.958972,
+            "label":"SS"
+          },
+            {
+            "lng":-75.195948,
+            "lat":39.953581,
+            "label":"LL"
+                 }]
+
+          var allresturant = restaurantData2.concat(restaurantData)
+          allresturant.forEach (addmarker)
+
+  
 
     /* =====================
 

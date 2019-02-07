@@ -29,10 +29,33 @@
     /* =====================
 
     Start code
-
+    //pro
     ===================== */
+    //pro1
+    var array =[]
+    let sum = 0;
+    for(var i=0;i<1001;i++){
+      if (i%3 === 0 || i%5 === 0) {
+        array.push(i);
+        sum +=i;
+      }
+    };
+    console.log(sum)
 
+    //pro2
+    function fibonacci(num) {
+    if (num <= 1) return 1;
+    return fibonacci(num - 1) + fibonacci(num - 2);
+  }
 
+    let j = 1;
+    let sum2 = 0;
+    while (fibonacci(j)<4e6) {
+      if (fibonacci(j) % 2===0) {
+      sum2+= fibonacci(j);}
+    j++;
+  };
+    console.log(sum2)
 
     /* =====================
 

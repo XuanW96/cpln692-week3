@@ -13,8 +13,8 @@
 
     <!--javascript imports-->
     <script src="leaflet.js"></script>
-    <script src="part4-data-clean.js"></script>
-    <script src="part4-data-dirty.js"></script>
+    <script src="part3-data-clean.js"></script>
+    <script src="part3-data-dirty.js"></script>
 
     <script>
 
@@ -63,14 +63,34 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
+    //console.log(data);
 
     /* =====================
 
     Start code to filter data
 
     ===================== */
+    let dataFiltered1 =[];
+        for (i = 0; i<data.length; i++) {
+          if (data[i].length==5) {delete data[i][0];}
+          else {dataFiltered1.push(data[i]);}
+        };
 
+    for (var i in dataFiltered1) {
+      dataFiltered1[i][0] = parseFloat(dataFiltered1[i][0]);
+      dataFiltered1[i][1] = parseFloat(dataFiltered1[i][1]);
+      dataFiltered1[i][3] = parseInt(dataFiltered1[i][3]);
+    };
+        //console.log(dataFiltered1);
+
+   var dataFiltered = [];
+      for (var i in dataFiltered1) {
+        if (dataFiltered1[i][3] > 20) {
+          dataFiltered.push(dataFiltered1[i]);
+        }
+      };
+      console.log(dataFiltered);
 
 
     /* =====================
@@ -98,7 +118,10 @@
 
     ===================== */
 
-
+    var addmarker = function (obj) {
+         console.log(obj);
+         return L.marker([obj[1], obj[0]]).addTo(map).bindPopup(obj[2])};
+         dataFiltered.forEach(addmarker)
 
     /* =====================
 
@@ -107,5 +130,5 @@
     ===================== */
 
     </script>
-  </body>
-</html>
+    </body>
+    </html>
